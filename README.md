@@ -6,5 +6,3 @@ Simple matrix library
  *  Contact me: francesco.podesta03@gmail.com
 
  *  Simple matrix library with basic operations.
-
- *
