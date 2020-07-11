@@ -20,6 +20,8 @@ public class Matrix {
             }
         }
     }
+
+
     public Matrix(){         // By calling Matrix m = new Matrix() it will create a matrix with a standard size 2 x 2
         this.rows = 2;
         this.cols = 2;
@@ -43,6 +45,18 @@ public class Matrix {
 
 
     */
+
+    public static Matrix fromArray(float[] input_array){
+        Matrix m = new Matrix(input_array.length,1);
+        Main main = new Main();
+        for (int i = 0; i<m.rows;i++){
+            for (int j = 0; j<m.cols;j++){
+                m.data[i][j] = input_array[i];
+            }
+        }
+
+        return m;
+    }
     public static void add(Matrix matrix, float n){
         for (int i = 0; i<matrix.rows;i++){
             for (int j = 0; j<matrix.cols;j++){
@@ -50,6 +64,43 @@ public class Matrix {
             }
         }
     }
+    public static  void subtract(Matrix matrix, float n){
+        for (int i = 0; i<matrix.rows;i++){
+            for (int j = 0; j<matrix.cols;j++){
+                matrix.data[i][j] -= n;
+            }
+        }
+
+    }
+    public static void map(Matrix matrix, Callable func){
+        for (int i =0; i<matrix.rows;i++){
+            for (int j = 0; j<matrix.cols;j++){
+                float old = matrix.data[i][j];
+                matrix.data[i][j] =sig(old); // replace it with your own function
+            }
+        }
+
+
+    }
+    // replace it with your own function
+    public static float sig(float x) {
+        return (float)(1 / (1+Math.exp(-x)) );
+    }
+    public static float[] toArray(Matrix matrix){
+        float[] res = new float[matrix.rows*matrix.cols];
+        int c = 0;
+        for (int i = 0; i<matrix.rows;i++){
+            for (int j =0; j<matrix.cols;j++){
+                c++;
+                res[c-1] = matrix.data[i][j];
+            }
+
+        }
+        return res;
+    }
+
+
+
     /* multiply a number n with a matrix m     eg: Matrix.multiply(m,2) ---->
   [[1, 1, 1]
    [1, 1, 1]   *  2  =
@@ -96,6 +147,15 @@ public class Matrix {
 
 
      */
+    public static  Matrix copy(Matrix matrix){
+        Matrix matrix1 = new Matrix(matrix.rows,matrix.cols);
+        for (int i = 0; i<matrix.rows;i++){
+            for (int j =0; j<matrix.cols;j++){
+                matrix1.data[i][j] = matrix.data[i][j];
+            }
+        }
+        return matrix1;
+    }
     public  static Matrix mAdd(Matrix m1, Matrix m2){
         Matrix m3 = new Matrix(m1.rows,m1.cols);
         if(m1.cols == m2.cols && m1.rows==m2.rows){
@@ -103,6 +163,25 @@ public class Matrix {
             for (int i = 0; i<m3.rows;i++){
                 for (int j = 0; j<m3.cols;j++){
                     m3.data[i][j] = m1.data[i][j]+m2.data[i][j];
+                }
+
+            }
+
+        }
+        else {
+            System.out.println("Error, matrix must have the same size!");
+        }
+        return m3;
+
+    }
+
+    public  static Matrix mSubtract(Matrix m1, Matrix m2){
+        Matrix m3 = new Matrix(m1.rows,m1.cols);
+        if(m1.cols == m2.cols && m1.rows==m2.rows){
+
+            for (int i = 0; i<m3.rows;i++){
+                for (int j = 0; j<m3.cols;j++){
+                    m3.data[i][j] = m1.data[i][j]-m2.data[i][j];
                 }
 
             }
