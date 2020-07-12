@@ -72,6 +72,7 @@ public class Matrix {
         }
 
     }
+   // apply your function to all numbers in the matrix
     public static void map(Matrix matrix, Callable func){
         for (int i =0; i<matrix.rows;i++){
             for (int j = 0; j<matrix.cols;j++){
@@ -86,6 +87,7 @@ public class Matrix {
     public static float sig(float x) {
         return (float)(1 / (1+Math.exp(-x)) );
     }
+   // from matrix to array
     public static float[] toArray(Matrix matrix){
         float[] res = new float[matrix.rows*matrix.cols];
         int c = 0;
@@ -193,7 +195,7 @@ public class Matrix {
         return m3;
 
     }
-    // used to multiply matrix
+    // used to multiply matrices
     private static float vectorMultiply(float[] vec1, float[][] m2,int rows, int index){
         float res = 0;
         float[] vec2 = new float[vec1.length];
