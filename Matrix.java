@@ -28,7 +28,7 @@ public class Matrix {
 
     public static Matrix fromArray(float[] input_array){
         Matrix m = new Matrix(input_array.length,1);
-        Main main = new Main();
+
         for (int i = 0; i<m.rows;i++){
             for (int j = 0; j<m.cols;j++){
                 m.data[i][j] = input_array[i];
