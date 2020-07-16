@@ -9,7 +9,7 @@
 
 
  
-  * Usage:
+  Usage:
 
  * Matrix m = new Matrix(2,3);  // new Matrix obj
  * Matrix.randomize(m);   // fill the matrix with random numbers
