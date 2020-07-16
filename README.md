@@ -1,15 +1,15 @@
 # MatrixLib
-   *Author: Francesco Podestà
-   *Age: 17 years old
-   *Student in Italy
-   *Contact me: francesco.podesta03@gmail.com
+   * Author: Francesco Podestà
+   * Age: 17 years old
+   * Student in Italy
+   * Contact me: francesco.podesta03@gmail.com
 
-   *Simple matrix library with basic operations.
+   * Simple matrix library with basic operations.
 
 
 
  
-  *Usage:
+  * Usage:
 
  * Matrix m = new Matrix(2,3);  // new Matrix obj
  * Matrix.randomize(m);   // fill the matrix with random numbers
